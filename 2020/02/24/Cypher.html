@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=ZCOOL XiaoWei:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Noto Serif SC:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: true,
+    fastclick: true,
+    lazyload: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"shrinkIn","post_header":"slideLeftIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideDownIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "751ad35c"
+    });
+  daovoice('update');
+  </script>
+
+  <meta name="description" content="Cypher​    一种 Neo4j 的查询语言，她是根据查询的路径来进行编写。 ​    举栗子：a Person LIVES_IN a City or a City is PART_OF a Country. 1(:Person) -[:LIVES_IN]-&amp;gt; (:City) -[:PART_OF]-&amp;gt; (:Country) node syntax () 代表任何节点，包罗万象。">
+<meta name="keywords" content="cypher">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&#39;Cypher&#39;">
+<meta property="og:url" content="https://www.ipyker.com/2020/02/24/Cypher.html">
+<meta property="og:site_name" content="Cherry&#39;Home">
+<meta property="og:description" content="Cypher​    一种 Neo4j 的查询语言，她是根据查询的路径来进行编写。 ​    举栗子：a Person LIVES_IN a City or a City is PART_OF a Country. 1(:Person) -[:LIVES_IN]-&amp;gt; (:City) -[:PART_OF]-&amp;gt; (:Country) node syntax () 代表任何节点，包罗万象。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://pic.downk.cc/item/5e553e7d6127cc0713b0d0f7.png">
+<meta property="og:updated_time" content="2020-03-01T01:38:47.222Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&#39;Cypher&#39;">
+<meta name="twitter:description" content="Cypher​    一种 Neo4j 的查询语言，她是根据查询的路径来进行编写。 ​    举栗子：a Person LIVES_IN a City or a City is PART_OF a Country. 1(:Person) -[:LIVES_IN]-&amp;gt; (:City) -[:PART_OF]-&amp;gt; (:Country) node syntax () 代表任何节点，包罗万象。">
+<meta name="twitter:image" content="https://pic.downk.cc/item/5e553e7d6127cc0713b0d0f7.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Cherry'Home" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://www.ipyker.com/2020/02/24/Cypher">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>'Cypher' | Cherry'Home</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+ 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cherry'Home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-互动">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/guestbook/" rel="section"><i class="menu-item-icon fa fa-fw fa-comments"></i> <br>互动</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.ipyker.com/2020/02/24/Cypher.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="丨韦木丨">
+      <meta itemprop="description" content="错的不是我，是整个世界">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cherry'Home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">'Cypher'
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-24 09:00:00" itemprop="dateCreated datePublished" datetime="2020-02-24T09:00:00+08:00">2020-02-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-01 09:38:47" itemprop="dateModified" datetime="2020-03-01T09:38:47+08:00">2020-03-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Neo4j/" itemprop="url" rel="index"><span itemprop="name">Neo4j</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">8.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">7 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Cypher"><a href="#Cypher" class="headerlink" title="Cypher"></a>Cypher</h2><p>​    一种 <strong>Neo4j</strong> 的查询语言，她是根据查询的路径来进行编写。</p>
+<p>​    举栗子：<em>a Person</em> <code>LIVES_IN</code> <em>a City</em> or <em>a City is</em> <code>PART_OF</code> <em>a Country</em>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(:Person) -[:LIVES_IN]-&gt; (:City) -[:PART_OF]-&gt; (:Country)</span><br></pre></td></tr></table></figure>
+<h4 id="node-syntax"><a href="#node-syntax" class="headerlink" title="node syntax"></a>node syntax</h4><p> () 代表任何节点，包罗万象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">()  </span><br><span class="line">(matrix)</span><br><span class="line">(:Movie)</span><br><span class="line">(matrix:Movie)</span><br><span class="line">(matrix:Movie &#123;title: &quot;The Matrix&quot;&#125;)</span><br><span class="line">(matrix:Movie &#123;title: &quot;The Matrix&quot;, released: 1997&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="relationship-syntax"><a href="#relationship-syntax" class="headerlink" title="relationship syntax"></a>relationship syntax</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">--&gt;</span><br><span class="line">-[role]-&gt;</span><br><span class="line">-[:ACTED_IN]-&gt;</span><br><span class="line">-[role:ACTED_IN]-&gt;</span><br><span class="line">-[role:ACTED_IN &#123;roles: [&quot;Neo&quot;]&#125;]-&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="pattern-syntax"><a href="#pattern-syntax" class="headerlink" title="pattern syntax"></a>pattern syntax</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(keanu:Person:Actor &#123;name:  &quot;Keanu Reeves&quot;&#125; )</span><br><span class="line">-[role:ACTED_IN     &#123;roles: [&quot;Neo&quot;] &#125; ]-&gt;</span><br><span class="line">(matrix:Movie       &#123;title: &quot;The Matrix&quot;&#125; )</span><br></pre></td></tr></table></figure>
+<p>‘ <strong>:</strong> ‘之前的均为变量，为了方便在别的地方进行引用，</p>
+<p>当然，变量也可以用来表示一条路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acted_in = (:Person)-[:ACTED_IN]-&gt;(:Movie)</span><br></pre></td></tr></table></figure>
+<p>路径也有一些属性，如节点数，关系数和路径长度，<code>nodes(path)</code>, <code>relationships(path)</code> ,<code>length(path)</code>.</p>
+<h4 id="clauses"><a href="#clauses" class="headerlink" title="clauses"></a>clauses</h4><p>​     CREATE  ONE</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE (:Movie &#123; title:&quot;The Matrix&quot;,released:1997 &#125;)</span><br></pre></td></tr></table></figure>
+<p>​    CREATE  MORE</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE (a:Person &#123; name:&quot;Tom Hanks&quot;,</span><br><span class="line">  born:1956 &#125;)-[r:ACTED_IN &#123; roles: [&quot;Forrest&quot;]&#125;]-&gt;(m:Movie &#123; title:&quot;Forrest Gump&quot;,released:1994 &#125;)</span><br><span class="line">CREATE (d:Person &#123; name:&quot;Robert Zemeckis&quot;, born:1951 &#125;)-[:DIRECTED]-&gt;(m)</span><br><span class="line">RETURN a,d,r,m</span><br></pre></td></tr></table></figure>
+<p>  MATCH</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MATCH (m:Movie)</span><br><span class="line">RETURN m</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MATCH (p:Person &#123; name:&quot;Keanu Reeves&quot; &#125;)</span><br><span class="line">RETURN p</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MATCH (p:Person &#123; name:&quot;Tom Hanks&quot; &#125;)-[r:ACTED_IN]-&gt;(m:Movie)</span><br><span class="line">RETURN m.title, r.roles</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MATCH (p:Person &#123; name:&quot;Tom Hanks&quot; &#125;)</span><br><span class="line">CREATE (m:Movie &#123; title:&quot;Cloud Atlas&quot;,released:2012 &#125;)</span><br><span class="line">CREATE (p)-[r:ACTED_IN &#123; roles: [&apos;Zachry&apos;]&#125;]-&gt;(m)</span><br><span class="line">RETURN p,r,m</span><br></pre></td></tr></table></figure>
+<p>  MERGE（MATCH+CREATE）</p>
+<p>  先判断需要玩弄的东西在数据库中是否存在，再进行相应的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MERGE (m:Movie &#123; title:&quot;Cloud Atlas&quot; &#125;)</span><br><span class="line">ON CREATE SET m.released = 2012</span><br><span class="line">RETURN m</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MATCH (m:Movie &#123; title:&quot;Cloud Atlas&quot; &#125;)</span><br><span class="line">MATCH (p:Person &#123; name:&quot;Tom Hanks&quot; &#125;)</span><br><span class="line">MERGE (p)-[r:ACTED_IN]-&gt;(m)</span><br><span class="line">ON CREATE SET r.roles =[&apos;Zachry&apos;]</span><br><span class="line">RETURN p,r,m</span><br></pre></td></tr></table></figure>
+<p>  如果没有满足MERGE之后描述的关系，就执行相应的操作（创建一个2014Year）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE (y:Year &#123; year:2014 &#125;)</span><br><span class="line">MERGE (y)&lt;-[:IN_YEAR]-(m10:Month &#123; month:10 &#125;)</span><br><span class="line">MERGE (y)&lt;-[:IN_YEAR]-(m11:Month &#123; month:11 &#125;)</span><br><span class="line">RETURN y,m10,m11</span><br></pre></td></tr></table></figure>
+<p><img src="https://pic.downk.cc/item/5e553e7d6127cc0713b0d0f7.png" alt="neo4j03"></p>
+<h2 id="Getting-the-correct-results"><a href="#Getting-the-correct-results" class="headerlink" title="Getting the correct results"></a>Getting the correct results</h2><p>  一个官方实例，首先创建用于练习的图。该图包含电影和人物节点，参演（属性有角色roles，即参演的演员）和指导关系。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE (matrix:Movie &#123; title:&quot;The Matrix&quot;,released:1997 &#125;)</span><br><span class="line">CREATE (cloudAtlas:Movie &#123; title:&quot;Cloud Atlas&quot;,released:2012 &#125;)</span><br><span class="line">CREATE (forrestGump:Movie &#123; title:&quot;Forrest Gump&quot;,released:1994 &#125;)</span><br><span class="line">CREATE (keanu:Person &#123; name:&quot;Keanu Reeves&quot;, born:1964 &#125;)</span><br><span class="line">CREATE (robert:Person &#123; name:&quot;Robert Zemeckis&quot;, born:1951 &#125;)</span><br><span class="line">CREATE (tom:Person &#123; name:&quot;Tom Hanks&quot;, born:1956 &#125;)</span><br><span class="line">CREATE (tom)-[:ACTED_IN &#123; roles: [&quot;Forrest&quot;]&#125;]-&gt;(forrestGump)</span><br><span class="line">CREATE (tom)-[:ACTED_IN &#123; roles: [&apos;Zachry&apos;]&#125;]-&gt;(cloudAtlas)</span><br><span class="line">CREATE (robert)-[:DIRECTED]-&gt;(forrestGump)</span><br></pre></td></tr></table></figure>
+<p>  查找标题为”The Matrix”的电影</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MATCH (m:Movie)</span><br><span class="line">WHERE m.title = &quot;The Matrix&quot;</span><br><span class="line">RETURN m</span><br></pre></td></tr></table></figure>
+<p>  上条查询语句也可以直接写成如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MATCH (m:Movie &#123; title: &quot;The Matrix&quot; &#125;)</span><br><span class="line">RETURN m</span><br></pre></td></tr></table></figure>
+<p>  Cypher中  ‘ <strong>=~</strong> ‘ 表示进行正则匹配</p>
+<p>  查询 p-r-&gt;m，人物名字为’k’开头 or 电影在2000年后发行  or  参演的角色中包含 “Neo”，返回满足以上条件的 p,r,m</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MATCH (p:Person)-[r:ACTED_IN]-&gt;(m:Movie)</span><br><span class="line">WHERE p.name =~ &quot;K.+&quot; OR m.released &gt; 2000 OR &quot;Neo&quot; IN r.roles</span><br><span class="line">RETURN p,r,m</span><br></pre></td></tr></table></figure>
+<p>  查询p-&gt;m 且 p 没有指导任何电影，返回p,m</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MATCH (p:Person)-[:ACTED_IN]-&gt;(m)</span><br><span class="line">WHERE NOT (p)-[:DIRECTED]-&gt;()</span><br><span class="line">RETURN p,m</span><br></pre></td></tr></table></figure>
+<p>  上述例子都是直接返回变量，接下来看看返回numbers, strings, arrays，maps 的情况。</p>
+<p>  ‘ <strong>coalesce()</strong> ’ 返回第一个非空值，当所有的都为空时，则返回null,</p>
+<p>下例中则表示若p没有昵称则直接返回”n/a”，更一般的，对于coalesce(a,b)，若a , b均为空值，则返回null。</p>
+<p>  ‘ <strong>AS</strong> ‘ 表示 为一个东西起别名，是返回的表中的列名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MATCH (p:Person)</span><br><span class="line">RETURN p, p.name AS name, toUpper(p.name), coalesce(p.nickname,&quot;n/a&quot;) AS nickname,</span><br><span class="line">  &#123; name: p.name, label:head(labels(p))&#125; AS person</span><br></pre></td></tr></table></figure>
+<p>  ‘ <strong>DISTINCT</strong> ‘ ，用于去重，即返回唯一值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MATCH (n)</span><br><span class="line">RETURN DISTINCT labels(n) AS Labels</span><br></pre></td></tr></table></figure>
+<p>  返回总人数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MATCH (:Person)</span><br><span class="line">RETURN count(*) AS people</span><br></pre></td></tr></table></figure>
+<p>  Cypher也支持聚集函数，如<code>count</code>, <code>sum</code>, <code>avg</code>, <code>min</code>, <code>max</code></p>
+<p>  返回 <strong>共同满足</strong> 参演关系和指导关系的人物和总数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MATCH (actor:Person)-[:ACTED_IN]-&gt;(movie:Movie)&lt;-[:DIRECTED]-(director:Person)</span><br><span class="line">RETURN actor, director, count(*) AS collaborations</span><br></pre></td></tr></table></figure>
+<p>  对结果进行排序，分页 <code>SKIP {offset}</code>、 <code>LIMIT {count}</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MATCH (a:Person)-[:ACTED_IN]-&gt;(m:Movie)</span><br><span class="line">RETURN a, count(*) AS appearances</span><br><span class="line">ORDER BY appearances DESC LIMIT 10;</span><br></pre></td></tr></table></figure>
+<p>  ‘ <strong>collect()</strong> ‘把返回的多个值或记录组装成一个列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MATCH (m:Movie)&lt;-[:ACTED_IN]-(a:Person)</span><br><span class="line">RETURN m.title AS movie, collect(a.name) AS cast, count(*) AS actors</span><br></pre></td></tr></table></figure>
+<p>  ‘ <strong>UNWIND</strong> ‘ 拆解collect</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UNWIND[1,2,3] AS x</span><br><span class="line">RETURN x</span><br></pre></td></tr></table></figure>
+<h2 id="Composing-large-statements"><a href="#Composing-large-statements" class="headerlink" title="Composing large statements"></a>Composing large statements</h2><p>  使用的例子图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE (matrix:Movie &#123; title:&quot;The Matrix&quot;,released:1997 &#125;)</span><br><span class="line">CREATE (cloudAtlas:Movie &#123; title:&quot;Cloud Atlas&quot;,released:2012 &#125;)</span><br><span class="line">CREATE (forrestGump:Movie &#123; title:&quot;Forrest Gump&quot;,released:1994 &#125;)</span><br><span class="line">CREATE (keanu:Person &#123; name:&quot;Keanu Reeves&quot;, born:1964 &#125;)</span><br><span class="line">CREATE (robert:Person &#123; name:&quot;Robert Zemeckis&quot;, born:1951 &#125;)</span><br><span class="line">CREATE (tom:Person &#123; name:&quot;Tom Hanks&quot;, born:1956 &#125;)</span><br><span class="line">CREATE (tom)-[:ACTED_IN &#123; roles: [&quot;Forrest&quot;]&#125;]-&gt;(forrestGump)</span><br><span class="line">CREATE (tom)-[:ACTED_IN &#123; roles: [&apos;Zachry&apos;]&#125;]-&gt;(cloudAtlas)</span><br><span class="line">CREATE (robert)-[:DIRECTED]-&gt;(forrestGump)</span><br></pre></td></tr></table></figure>
+<h5 id><a href="#" class="headerlink" title=" "></a> </h5><h4 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a>UNION</h4><p>  对于相似的查询结构，取结果的并集。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MATCH (actor:Person)-[r:ACTED_IN]-&gt;(movie:Movie)</span><br><span class="line">RETURN actor.name AS name, type(r) AS type, movie.title AS title</span><br><span class="line">UNION</span><br><span class="line">MATCH (director:Person)-[r:DIRECTED]-&gt;(movie:Movie)</span><br><span class="line">RETURN director.name AS name, type(r) AS type, movie.title AS title</span><br></pre></td></tr></table></figure>
+<p>  以上语句等同于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MATCH (actor:Person)-[r:ACTED_IN|DIRECTED]-&gt;(movie:Movie)</span><br><span class="line">RETURN actor.name AS name, type(r) AS type, movie.title AS title</span><br></pre></td></tr></table></figure>
+<h4 id="WITH"><a href="#WITH" class="headerlink" title="WITH"></a>WITH</h4><p>  引导数据的流向，和 <strong>RETURN</strong> 相似只是不会终止查询。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MATCH (person:Person)-[:ACTED_IN]-&gt;(m:Movie)</span><br><span class="line">WITH person, count(*) AS appearances, collect(m.title) AS movies</span><br><span class="line">WHERE appearances &gt; 1</span><br><span class="line">RETURN person.name, appearances, movies</span><br></pre></td></tr></table></figure>
+<h2 id="Defining-a-schema"><a href="#Defining-a-schema" class="headerlink" title="Defining a schema"></a>Defining a schema</h2><p>  例子图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE (matrix:Movie &#123; title:&quot;The Matrix&quot;,released:1997 &#125;)</span><br><span class="line">CREATE (cloudAtlas:Movie &#123; title:&quot;Cloud Atlas&quot;,released:2012 &#125;)</span><br><span class="line">CREATE (forrestGump:Movie &#123; title:&quot;Forrest Gump&quot;,released:1994 &#125;)</span><br><span class="line">CREATE (keanu:Person &#123; name:&quot;Keanu Reeves&quot;&#125;)</span><br><span class="line">CREATE (robert:Person &#123; name:&quot;Robert Zemeckis&quot;, born:1951 &#125;)</span><br><span class="line">CREATE (tom:Person &#123; name:&quot;Tom Hanks&quot;, born:1956 &#125;)</span><br><span class="line">CREATE (tom)-[:ACTED_IN &#123; roles: [&quot;Forrest&quot;]&#125;]-&gt;(forrestGump)</span><br><span class="line">CREATE (tom)-[:ACTED_IN &#123; roles: [&apos;Zachry&apos;]&#125;]-&gt;(cloudAtlas)</span><br><span class="line">CREATE (robert)-[:DIRECTED]-&gt;(forrestGump)</span><br></pre></td></tr></table></figure>
+<h4 id="INDEX"><a href="#INDEX" class="headerlink" title="INDEX"></a>INDEX</h4><p>  创建索引，这样在查询的时候会加快查询速度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE INDEX ON :Actor(name)</span><br></pre></td></tr></table></figure>
+<p>  查看数据库中的索引。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CALL db.indexes</span><br><span class="line">YIELD description, tokenNames, properties, type;</span><br></pre></td></tr></table></figure>
+<h4 id="CONSTRAINT"><a href="#CONSTRAINT" class="headerlink" title="CONSTRAINT"></a>CONSTRAINT</h4><p>  为数据添加需要遵守的相关规则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE CONSTRAINT ON (movie:Movie) ASSERT movie.title IS UNIQUE</span><br></pre></td></tr></table></figure>
+<p>  查看constraints。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CALL db.constraints</span><br></pre></td></tr></table></figure>
+<h2 id="Import-data"><a href="#Import-data" class="headerlink" title="Import data"></a>Import data</h2><p>  我们要导入movies.csv，roles.csv，persons.csv三个文件到图数据库中。假如文件都使用<code>file:///</code> URL。</p>
+<p>  1、首先为我们的电影和人物的ID创建唯一约束，为城市名创建索引就隐含了唯一的条件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE CONSTRAINT ON (person:Person) ASSERT person.id IS UNIQUE</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE CONSTRAINT ON (movie:Movie) ASSERT movie.id IS UNIQUE</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE INDEX ON :Country(name)</span><br></pre></td></tr></table></figure>
+<p>  2、然后我们将文件加载进来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LOAD CSV WITH HEADERS FROM &quot;file:///persons.csv&quot; AS csvLine</span><br><span class="line">CREATE (p:Person &#123;id: toInteger(csvLine.id), name: csvLine.name&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LOAD CSV WITH HEADERS FROM &quot;file:///movies.csv&quot; AS csvLine</span><br><span class="line">MERGE (country:Country &#123;name: csvLine.country&#125;)</span><br><span class="line">CREATE (movie:Movie &#123;id: toInteger(csvLine.id), title: csvLine.title, year:toInteger(csvLine.year)&#125;)</span><br><span class="line">CREATE (movie)-[:MADE_IN]-&gt;(country)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">USING PERIODIC COMMIT 500  //大文件进行分批导入，默认1000行提交一次，这里设置为500行提交一次</span><br><span class="line">LOAD CSV WITH HEADERS FROM &quot;file:///roles.csv&quot; AS csvLine</span><br><span class="line">MATCH (person:Person &#123;id: toInteger(csvLine.personId)&#125;),(movie:Movie &#123;id: toInteger(csvLine.movieId)&#125;)</span><br><span class="line">CREATE (person)-[:PLAYED &#123;role: csvLine.role&#125;]-&gt;(movie)</span><br></pre></td></tr></table></figure>
+<p>  3、最后删除我们创建的唯一约束</p>
+<p>  小伙伴疑惑了，为什么要删除呢？因为ID的目的仅仅是为了便于导入关系的，最后我们当然可以进行删除啦。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP CONSTRAINT ON (person:Person) ASSERT person.id IS UNIQUE</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP CONSTRAINT ON (movie:Movie) ASSERT movie.id IS UNIQUE</span><br></pre></td></tr></table></figure>
+<p>参考文档：</p>
+<blockquote>
+<p><a href="https://neo4j.com/docs/getting-started/current/cypher-intro/results/" target="_blank" rel="noopener">https://neo4j.com/docs/getting-started/current/cypher-intro/results/</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>Thank you for your accept. mua！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/reward/wechatpay.png" alt="丨韦木丨 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>韦木</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://www.ipyker.com/2020/02/24/Cypher.html" title="'Cypher'">https://www.ipyker.com/2020/02/24/Cypher.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">-------------本文结束<i class="fa fa-heart"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cypher/" rel="tag"><i class="fa fa-tag"></i> cypher</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/23/初识Neo4j.html" rel="next" title="'初识Neo4j'">
+                <i class="fa fa-chevron-left"></i> '初识Neo4j'
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/26/Attention.html" rel="prev" title="'2017-EMNLP-Deep Joint Entity Disambiguation with Local Neural Attention'">
+                '2017-EMNLP-Deep Joint Entity Disambiguation with Local Neural Attention' <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDM5Mi8yMDkyNA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="丨韦木丨">
+            
+              <p class="site-author-name" itemprop="name">丨韦木丨</p>
+              <div class="site-description motion-element" itemprop="description">错的不是我，是整个世界</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/weimu-love" title="GitHub &rarr; https://github.com/weimu-love" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:1749765344@qq.com" title="E-Mail &rarr; mailto:1749765344@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="tencent://message/?uin=1749765344&Site=&menu=yes" title="QQ &rarr; tencent://message/?uin=1749765344&Site=&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cypher"><span class="nav-number">1.</span> <span class="nav-text">Cypher</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#node-syntax"><span class="nav-number">1.0.1.</span> <span class="nav-text">node syntax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#relationship-syntax"><span class="nav-number">1.0.2.</span> <span class="nav-text">relationship syntax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pattern-syntax"><span class="nav-number">1.0.3.</span> <span class="nav-text">pattern syntax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clauses"><span class="nav-number">1.0.4.</span> <span class="nav-text">clauses</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Getting-the-correct-results"><span class="nav-number">2.</span> <span class="nav-text">Getting the correct results</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Composing-large-statements"><span class="nav-number">3.</span> <span class="nav-text">Composing large statements</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">3.0.0.1.</span> <span class="nav-text"> </span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UNION"><span class="nav-number">3.0.1.</span> <span class="nav-text">UNION</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WITH"><span class="nav-number">3.0.2.</span> <span class="nav-text">WITH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defining-a-schema"><span class="nav-number">4.</span> <span class="nav-text">Defining a schema</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#INDEX"><span class="nav-number">4.0.1.</span> <span class="nav-text">INDEX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CONSTRAINT"><span class="nav-number">4.0.2.</span> <span class="nav-text">CONSTRAINT</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Import-data"><span class="nav-number">5.</span> <span class="nav-text">Import data</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" style=" text-align:center;">&copy; 2017 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">韦木</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"> 站点字数合计:</i>
+    </span>
+    
+    <span title="站点总字数">15k</span>
+  
+  
+  <span class="post-meta-divider">|</span>
+  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19028706号 </a>
+
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+<div class="run_time" style=" text-align:center;">
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/23/2017 10:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+    setInterval("createtime()",250);
+  </script>
+</div>
+        
+<div class="busuanzi-count" style=" text-align:center;">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="255,0,255" opacity="0.7" zindex="-1" count="140" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+  <script id="ribbon" size="300" alpha="0.1" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2020/02/24/Cypher.html'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":250,"height":500},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
