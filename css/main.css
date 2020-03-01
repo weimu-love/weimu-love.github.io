@@ -1789,7 +1789,7 @@ pre .javascript .function {
 .site-author-name {
   margin: 5px 0 0;
   text-align: center;
-  color: #ee7ae9;
+  color: #cd00cd;
   font-weight: bold;
   font-size: 16px;
 }
@@ -1821,7 +1821,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #77ff05;
+  background: #ecd7ee;
 }
 .feed-link,
 .chat {
@@ -2077,6 +2077,14 @@ pre .javascript .function {
   50%, 70% {
     transform: scale(1.1);
   }
+}
+.gt-header a,
+.gt-comments a,
+.gt-popup a {
+  border-bottom: none;
+}
+.gt-container .gt-popup .gt-action.is--active:before {
+  top: 0.7em;
 }
 .local-search-pop-overlay {
   position: fixed;

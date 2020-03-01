@@ -493,7 +493,7 @@
           <div align="center"><br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558956326532&di=82cc9907fc903cfb978a35206986d3f6&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160809%2F31283a3e2d7f411492d3fb27297180ec_th.jpg"><br></div>
 
 
-    <div id="aplayer-GaOiGlTM" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="2250011882" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="true" data-mutex="false" data-listmaxheight="250px" data-preload="none" data-theme="#f7f7f7" data-order="random"></div>
+    <div id="aplayer-dTGVSiuI" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="2250011882" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="true" data-mutex="false" data-listmaxheight="250px" data-preload="none" data-theme="#f7f7f7" data-order="random"></div>
 
         
       </div>
@@ -515,11 +515,7 @@
           
 
   
-    <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
-    </div>
+    <div id="gitalk-container"></div>
 
   
 
@@ -899,42 +895,55 @@
 
 
   
-    <!-- LOCAL: You can save these files to your site and update links -->
+    
 
-  
-  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
-<!-- END LOCAL -->
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
-<script>
-  function renderGitment() {
-    var gitment = new Gitmint({
-      id: window.location.pathname,
-      owner: 'weimu-love',
-      repo: 'gitment-comments',
-      
-        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-      
-      oauth: {
-      
-      
-        client_secret: '19db709d0ee1dda255eb36902865a8eacb04da1b',
-      
-        client_id: 'Iv1.11ba89fce3a79da4'
-      }
-    });
-    gitment.render('gitment-container');
-  }
-
-  
-    renderGitment();
-  
-</script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '',
+          clientSecret: '',
+          repo: 'gitalk',
+          owner: '',
+          admin: ,
+          id: ,
+          labels: ,
+          perPage: 15,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
   
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '',
+          clientSecret: '',
+          repo: 'gitalk',
+          owner: '',
+          admin: ,
+          id: ,
+          labels: ,
+          perPage: 15,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+.gt-container a{border-bottom: none;}
   
   <script>
     // Popup Window;
